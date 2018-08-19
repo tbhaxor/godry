@@ -3,8 +3,9 @@
 #define swTX 3
 #define BAUD 115200
 
-String AP =  "Neo";
-String Password  = "matrixneo";
+String AP =  "";   // your AP SSID
+String Password  = "";  // your AP Password
+
 int redPin = 4;
 int greenPin = 5;
 int bluePin = 6;
