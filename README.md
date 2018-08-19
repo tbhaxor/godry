@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/tbhaxor/godry/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+# Go Dry
+> A wifi controlled GoKart
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Hardwares Used
+1. [Arduino Uno](http://img.dxcdn.com/productimages/sku_370842_1.jpg)
+2. [Common Anode RGB Led](https://storage.googleapis.com/stateless-www-faranux-com/2017/02/5mm-RGB-LED-Anode.png)
+3. [L239D IC and Circuit](https://www.elementzonline.com/image/cache/catalog/data/products/Interface%20Boards/Motor%20Driver/Enusn%20Board%20with%20IC/IMG_0035-500x500.JPG)
+4. [ESP 01 Wifi Module](https://researchdesignlab.com/media/catalog/product/cache/1/image/512x512/9ea150a65d3ccc136116bd4ea279f951/e/s/esp8266-esp-01-serial-wifi-wireless-transceiver-module-250x250.jpg)
+5. [100 Rotation DC Geared Motor](https://images-na.ssl-images-amazon.com/images/I/414ATaxpPFL.jpg)
+6. [Solderless Breadboard](https://d2drzakx2pq6fl.cloudfront.net/production/products/142/large/small-breadboard.jpg?1442476912)
+7. [Jump Wires](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/A_few_Jumper_Wires.jpg/1200px-A_few_Jumper_Wires.jpg)
+8. [9V Battery](https://core-electronics.com.au/media/catalog/product/cache/1/image/650x650/fe1bcd18654db18f328c2faaaf3c690a/1/3/1321-00.jpg)
 
-### Markdown
+# Circuit Diagram
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+# How to use
+1. Connect the circuit as shown in [Circuit Diagram Section](#circuit-diagram)
+2. Upload the `wifiCar.ino` code.
+**Note :** Make sure you have entered correct AP and Password in 6 & 7 line
+```cpp
+String AP =  "";   // your AP SSID
+String Password  = "";  // your AP Password
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tbhaxor/godry/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+3. Press CTRL+U to upload the code
+4. Wait untill Green LED i.e _Ready To Use_
+5. Choose any driver in `Driver/` directory
