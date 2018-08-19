@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GoKart Controller</title>
+    <script src="./jquery.js"></script>
+    <style>
+        * {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center">GoKart Driver</h1>
+    <fieldset>
+        <legend>Car Details</legend>
+        <div style="margin-left: 30px; margin-top: 15px; margin-bottom: 15px">
+            <label for="ip1">Car IP &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+            </label>
+            <input type="text" id="ip1" style="padding-left: 5px; padding-top: 2px; padding-bottom: 2px;">
+            <button id="set">Set</button>
+            <br>
+
+            <br>
+
+            <label for="ip2">Car Host Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+            <input value="ESP_1BA53A" type="text" id="ip2" style="padding-left: 5px; padding-top: 2px; padding-bottom: 2px;">
+            <button id="setHost">Set</button>
+            <br>
+            <br>
+            <!-- <label for="ssid">SSID &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label>
+            <input type="text" id="ssid" style="padding-left: 5px; padding-top: 2px; padding-bottom: 2px;">
+            <br>
+            <br>
+            <label for="pass">Password : </label>
+            <input type="password" id="pass" style="padding-left: 5px; padding-top: 2px; padding-bottom: 2px;">
+            <br>
+            <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button id="connect">Connect</button>
+            <br>
+            <br> -->
+        </div>
+    </fieldset>
+    <br>
+    <br>
+    <fieldset>
+        <legend>Car Motion Controller</legend>
+        <pre style="width: 100%;text-align:center">  <button id="forward">&uarr;</button>  
+
+<button id="left">&larr;</button>    <button id="back">&darr;</button>    <button id="right">&rarr;</button>
+
+<button id="break">           Break           </button>
+</pre>
+    </fieldset>
+    <br>
+    <br>
+    <fieldset>
+        <legend>Response</legend>
+        <textarea readonly style="width:100%; height: 100px; resize: none"></textarea>
+    </fieldset>
+    <script>
+        var ip = ""
+        var car = ""
+        $("#break").click(() => {
+            if (ip == "") {
+                alert("IP Not Set");
+            }
+
+            send("brk");
+        })
+        // brk fwd rgt lft
+
+        $("#forward").click(() => {
+            if (ip == "") {
+                alert("IP Not Set");
+            }
+            send("fwd");
+        })
+
+        $("#back").click(() => {
+            if (ip == "") {
+                alert("IP Not Set");
+            }
+            send("bck")
+        })
+
+        $("#left").click(() => {
+            if (ip == "") {
+                alert("IP Not Set");
+            }
+            send("lft");
+        })
+
+        $("#right").click(() => {
+            if (ip == "") {
+                alert("IP Not Set");
+            }
+            send("rgt");
+        })
+
+
+        function send(command) {
+            $.ajax({
+                url: car,
+                data: {
+                    "action": command
+                },
+                headers: {
+                    Connection: "close",
+                },
+
+                type: "GET",
+                method: "GET"
+            })
+        }
+
+        $("#set").click(() => {
+            ip = $("#ip1").val()
+            if (ip == "") return;
+            htmlLog("Hooked with car");
+            htmlLog("Car IP : " + ip);
+            $("#setHost").attr("disabled", "")
+            $("#set").attr("disabled", "")
+            $("input").attr("disabled", "")
+            $("#setHost").text("Reload page to set new IP")
+            $("#set").text("Reload page to set new IP")
+            car = "http://" + ip + ":80/";
+            htmlLog("Will be requesting at " + car);
+
+        })
+
+        $("#setHost").click(() => {
+            ip = $("#ip2").val()
+            if (ip == "") return;
+            htmlLog("Hooked with car");
+            htmlLog("Car Name : " + ip);
+            $("#setHost").attr("disabled", "")
+            $("#set").attr("disabled", "")
+            $("input").attr("disabled", "")
+            $("#setHost").text("Reload page to set new IP")
+            $("#set").text("Reload page to set new IP")
+            car = "http://" + ip + ":80/";
+            htmlLog("Will be requesting at " + car);
+
+        })
+
+        $(document).ready(() => {
+            htmlLog("Car Not Found");
+        })
+
+        function htmlLog(str) {
+            $("textarea").append(str, "\n")
+            var $textarea = $('textarea');
+            $textarea.scrollTop($textarea[0].scrollHeight);
+        }
+    </script>
+</body>
+
+</html>
