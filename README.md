@@ -1,6 +1,12 @@
 
 # Go Dry
 > A wifi controlled GoKart
+Go Dry is a WiFi controlled car powered with `Arduino UNO`. This is my first arduino project
+
+![image](https://user-images.githubusercontent.com/28386721/44403607-8de12f00-a572-11e8-83ac-5e9e7121b455.png)
+
+![image](https://user-images.githubusercontent.com/28386721/44403618-92a5e300-a572-11e8-893c-3de3cf41deaf.png)
+
 
 # Hardwares Used
 1. [Arduino Uno](http://img.dxcdn.com/productimages/sku_370842_1.jpg)
@@ -13,6 +19,7 @@
 8. [9V Battery](https://core-electronics.com.au/media/catalog/product/cache/1/image/650x650/fe1bcd18654db18f328c2faaaf3c690a/1/3/1321-00.jpg)
 
 # Circuit Diagram
+![image](https://user-images.githubusercontent.com/28386721/44403584-7dc94f80-a572-11e8-8edc-6359eec9bbe3.png)
 
 
 # How to use
@@ -26,3 +33,6 @@ String Password  = "";  // your AP Password
 3. Press CTRL+U to upload the code
 4. Wait untill Green LED i.e _Ready To Use_
 5. Choose any driver in `Driver/` directory
+
+# Licence
+[GNU GPL-v3.0](https://github.com/tbhaxor/godry/blob/master/LICENSE)
