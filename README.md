@@ -1,11 +1,13 @@
 
 # Go Dry
 > A wifi controlled GoKart
+
 Go Dry is a WiFi controlled car powered with `Arduino UNO`. This is my first arduino project
 
-![image](https://user-images.githubusercontent.com/28386721/44403607-8de12f00-a572-11e8-83ac-5e9e7121b455.png)
+<table>
+  <tr><td> <img src="https://user-images.githubusercontent.com/28386721/44403607-8de12f00-a572-11e8-83ac-5e9e7121b455.png"></td> <td> <img src="https://user-images.githubusercontent.com/28386721/44403618-92a5e300-a572-11e8-893c-3de3cf41deaf.png"></td></table>
 
-![image](https://user-images.githubusercontent.com/28386721/44403618-92a5e300-a572-11e8-893c-3de3cf41deaf.png)
+
 
 
 # Hardwares Used
